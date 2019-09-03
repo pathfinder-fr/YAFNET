@@ -4,6 +4,15 @@
     <TargetFramework>net472</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>latest</LangVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B9CF38B0-39CF-43C7-9589-166DCC665652}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YAF.Types</RootNamespace>
+    <AssemblyName>YAF.Types</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\YetAnotherForum.NET\Bin\</OutputPath>
