@@ -338,7 +338,7 @@ namespace YAF.Web.Controls
                     DataToggle = "tooltip"
                 };
 
-                writer.Write(@"<div class=""btn-group"" role=""group"">");
+                writer.Write(@"<div class=""btn-group float-right"" role=""group"">");
                 writer.Write(gotoLastUnread.RenderToString());
                 writer.Write(gotoLastPost.RenderToString());
                 writer.Write("</div>");
