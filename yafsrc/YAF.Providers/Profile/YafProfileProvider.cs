@@ -545,19 +545,23 @@ namespace YAF.Providers.Profile
                 // validiate all the properties and populate the internal settings collection
                 foreach (SettingsProperty property in collection)
                 {
-                    SqlDbType dbType;
-                    int size;
+                    SqlDbType dbType = SqlDbType.VarChar;
+                    int size = 0;
 
                     // parse custom provider data...
-                    DB.GetDbTypeAndSizeFromString(property.Attributes["CustomProviderData"].ToString(), out dbType, out size);
-
-                    // default the size to 256 if no size is specified
-                    if (dbType == SqlDbType.NVarChar && size == -1)
+                    var customProviderData = property?.Attributes["CustomProviderData"];
+                    if (customProviderData != null)
                     {
-                        size = 256;
-                    }
+                        DB.GetDbTypeAndSizeFromString(customProviderData.ToString(), out dbType, out size);
 
-                    this._settingsColumnsList.Add(new SettingsPropertyColumn(property, dbType, size));
+                        // default the size to 256 if no size is specified
+                        if (dbType == SqlDbType.NVarChar && size == -1)
+                        {
+                            size = 256;
+                        }
+
+                        this._settingsColumnsList.Add(new SettingsPropertyColumn(property, dbType, size));
+                    }
                 }
 
                 // sync profile table structure with the db...
